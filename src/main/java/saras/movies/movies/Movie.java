@@ -28,4 +28,6 @@ public class Movie {
     private List<String> genres;
 
     private List<String> backdrops;
+
+    private List<Review> reviewIds;
 }
