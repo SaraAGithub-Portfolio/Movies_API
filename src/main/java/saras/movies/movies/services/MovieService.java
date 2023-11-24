@@ -10,14 +10,22 @@ import java.util.Optional;
 
 @Service
 public class MovieService {
+    private final MovieRepository movieRepository;
+
     @Autowired
-   private MovieRepository movieRepository;
-    public List<Movie> allMovies() {
-        List<Movie> movies = movieRepository.findAll();
-     System.out.println(movies.toString());
-    return movies;
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
     }
+
+    public List<Movie> allMovies() {
+        return movieRepository.findAll();
+    }
+
     public Optional<Movie> singleMovie(String imdbId) {
+        if (imdbId == null || imdbId.trim().isEmpty()) {
+            throw new IllegalArgumentException("IMDb ID cannot be null or empty");
+        }
         return movieRepository.findMovieByImdbId(imdbId);
     }
+
 }
