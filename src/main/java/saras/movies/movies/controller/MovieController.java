@@ -3,10 +3,7 @@ package saras.movies.movies.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import saras.movies.movies.model.Movie;
 import saras.movies.movies.services.MovieService;
 
@@ -26,5 +23,13 @@ public class MovieController {
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) {
         return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<Movie>> getMoviesByGenreAndReleaseYear(
+            @RequestParam String genres,
+            @RequestParam String releaseDate) {
+        List<Movie> movies = movieService.findMoviesByGenresAndReleaseDate(genres, releaseDate);
+        return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 }

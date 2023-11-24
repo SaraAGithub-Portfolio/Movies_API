@@ -28,4 +28,8 @@ public class MovieService {
         return movieRepository.findMovieByImdbId(imdbId);
     }
 
+    public List<Movie> findMoviesByGenresAndReleaseDate(String genres, String releaseDate) {
+        return movieRepository.findByGenresAndReleaseDate(genres, releaseDate);
+    }
+
 }
