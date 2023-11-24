@@ -1,10 +1,13 @@
-package saras.movies.movies;
+package saras.movies.movies.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+import saras.movies.movies.model.Review;
+import saras.movies.movies.model.Movie;
+import saras.movies.movies.repository.ReviewRepository;
 
 @Service
 public class ReviewService {

@@ -1,4 +1,4 @@
-package saras.movies.movies;
+package saras.movies.movies.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
