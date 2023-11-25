@@ -32,5 +32,8 @@ public class MovieService {
         return movieRepository.findByGenresAndReleaseDate(genres, releaseDate);
     }
     // Updated to allow user to search by Movie Name
+    public List<Movie> findMoviesByTitle(String title) {
+        return movieRepository.findByTitleContainingIgnoreCase(title);
+    }
 
 }

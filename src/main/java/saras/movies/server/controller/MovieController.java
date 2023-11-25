@@ -44,6 +44,12 @@ public class MovieController {
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
+    //updated to allow users to find movie by title
+    @GetMapping("/search")
+    public List<Movie> searchMoviesByTitle(@RequestParam String title) {
+        return movieService.findMoviesByTitle(title);
+    }
+
     // returns '400' with exception message when receiving invalid argument
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {

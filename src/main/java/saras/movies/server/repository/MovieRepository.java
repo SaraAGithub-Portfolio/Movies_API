@@ -18,6 +18,9 @@ public interface MovieRepository extends MongoRepository<Movie, ObjectId> {
    @Query("{ 'genres': { $in: [?0] }, 'releaseDate': { $regex: ?1, $options: 'i' } }")
    List<Movie> findByGenresAndReleaseDate(String genres, String releaseDate);
 
+   // added method to find movies by their title
+   List<Movie> findByTitleContainingIgnoreCase(String title);
+
 
 
 }

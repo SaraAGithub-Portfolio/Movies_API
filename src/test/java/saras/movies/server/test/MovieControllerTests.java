@@ -50,7 +50,7 @@ public class MovieControllerTests {
                        .param("releaseDate", "2022"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.jsonPath("$").isArray());
-       // Additional assertions to check the contents of the response
+
    }
 
    // test to check error handling
