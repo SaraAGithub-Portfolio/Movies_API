@@ -27,7 +27,7 @@ public class MovieControllerTests {
 
     //test to check the status of '200' is returned when retrieving a single movie with a valid ID
     @Test
-    public void whenGetSingleMovie_withValidID_thenStatus200() throws Exception {
+    public void whenGetSingleMovie_withValidImdbId_thenStatus200() throws Exception {
         String validImdbId = "tt3915174";
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/movies/" + validImdbId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -36,17 +36,18 @@ public class MovieControllerTests {
 
     //test to check invalid ImdbId provided
     @Test
-    public void whenGetSingleMovie_withInvalidID_thenStatus404() throws Exception {
+    public void whenGetSingleMovie_withInvalidImdbId_thenStatus404() throws Exception {
         String invalidImdbId = "invalid_imdbId";
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/movies/" + invalidImdbId))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
-   // test to check if params are handled correctly
+
+    // test to check if params are handled correctly
    @Test
-   public void whenGetMoviesByGenreAndReleaseYear_thenStatus200() throws Exception {
+   public void whenGetMoviesByGenreAndReleaseDate_thenStatus200() throws Exception {
        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/movies/filter")
-                       .param("genre", "Action")
-                       .param("releaseYear", "2022"))
+                       .param("genres", "Action")
+                       .param("releaseDate", "2022"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andExpect(MockMvcResultMatchers.jsonPath("$").isArray());
        // Additional assertions to check the contents of the response

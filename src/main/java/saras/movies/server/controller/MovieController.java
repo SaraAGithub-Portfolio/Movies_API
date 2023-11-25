@@ -26,9 +26,14 @@ public class MovieController {
         return new ResponseEntity<List<Movie>>(movieService.allMovies(),HttpStatus.OK);
     }
 
+    //updated controller method to check if result is empty / present
     @GetMapping("/{imdbId}")
-    public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) {
-        return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
+    public ResponseEntity<Movie> getSingleMovie(@PathVariable String imdbId) {
+        Optional<Movie> movieOptional = movieService.singleMovie(imdbId);
+        if (!movieOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(movieOptional.get());
     }
 
     @GetMapping("/filter")
