@@ -38,7 +38,7 @@ public class ReviewService {
     public List<Review> getReviewsByImdbId(String imdbId) {
      return reviewRepository.findByImdbId(imdbId);
     }
-
+//allow users to find reviews by title of movie
     public List<Review> getReviewsByTitle(String title) {
      return reviewRepository.findByTitle(title);
     }
