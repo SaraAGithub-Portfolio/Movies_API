@@ -28,10 +28,10 @@ public class MovieControllerTests {
     //test to check the status of '200' is returned when retrieving a single movie with a valid ID
     @Test
     public void whenGetSingleMovie_withValidID_thenStatus200() throws Exception {
-        String validId = "tt8760708";
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/movies" + validId))
+        String validImdbId = "tt3915174";
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/movies/" + validImdbId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.imdbId").value(validId));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.imdbId").value(validImdbId));
     }
 
 }

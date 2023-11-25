@@ -13,8 +13,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
+
+    private final MovieService movieService;
+
     @Autowired
-    private MovieService movieService;
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
+
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
         return new ResponseEntity<List<Movie>>(movieService.allMovies(),HttpStatus.OK);
