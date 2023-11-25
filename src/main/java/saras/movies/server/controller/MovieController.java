@@ -32,10 +32,16 @@ public class MovieController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<List<Movie>> getMoviesByGenreAndReleaseYear(
+    public ResponseEntity<List<Movie>> getMoviesByGenresAndReleaseDate(
             @RequestParam String genres,
             @RequestParam String releaseDate) {
         List<Movie> movies = movieService.findMoviesByGenresAndReleaseDate(genres, releaseDate);
         return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
+
+    // returns '400' with exception message when receiving invalid argument
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }

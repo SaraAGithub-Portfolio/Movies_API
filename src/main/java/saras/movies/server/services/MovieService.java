@@ -27,9 +27,10 @@ public class MovieService {
         }
         return movieRepository.findMovieByImdbId(imdbId);
     }
-
+// Updated to allow user to search via genre and release date
     public List<Movie> findMoviesByGenresAndReleaseDate(String genres, String releaseDate) {
         return movieRepository.findByGenresAndReleaseDate(genres, releaseDate);
     }
+    // Updated to allow user to search by Movie Name
 
 }
