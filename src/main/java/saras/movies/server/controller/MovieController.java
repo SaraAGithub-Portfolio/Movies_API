@@ -1,11 +1,11 @@
-package saras.movies.movies.controller;
+package saras.movies.server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import saras.movies.movies.model.Movie;
-import saras.movies.movies.services.MovieService;
+import saras.movies.server.model.Movie;
+import saras.movies.server.services.MovieService;
 
 import java.util.List;
 import java.util.Optional;

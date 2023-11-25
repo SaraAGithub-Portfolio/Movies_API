@@ -1,4 +1,4 @@
-package saras.movies.movies.controller;
+package saras.movies.server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import saras.movies.movies.model.Review;
-import saras.movies.movies.services.ReviewService;
+import saras.movies.server.model.Review;
+import saras.movies.server.services.ReviewService;
 
 import java.util.Map;
 

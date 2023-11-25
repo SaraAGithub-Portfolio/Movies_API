@@ -1,10 +1,10 @@
-package saras.movies.movies.repository;
+package saras.movies.server.repository;
 
 import org.springframework.data.mongodb.repository.Query;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-import saras.movies.movies.model.Movie;
+import saras.movies.server.model.Movie;
 
 import java.util.List;
 import java.util.Optional;

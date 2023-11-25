@@ -1,4 +1,4 @@
-package saras.movies.movies.test;
+package saras.movies.server.test;
 
 
 import org.junit.jupiter.api.Test;
@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import saras.movies.movies.repository.MovieRepository;
-import saras.movies.movies.services.MovieService;
-import saras.movies.movies.model.Movie;
+import saras.movies.server.repository.MovieRepository;
+import saras.movies.server.services.MovieService;
+import saras.movies.server.model.Movie;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;

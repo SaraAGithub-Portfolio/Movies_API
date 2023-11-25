@@ -1,4 +1,4 @@
-package saras.movies.movies;
+package saras.movies.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

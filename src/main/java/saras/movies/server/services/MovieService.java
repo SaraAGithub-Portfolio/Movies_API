@@ -1,9 +1,9 @@
-package saras.movies.movies.services;
+package saras.movies.server.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import saras.movies.movies.model.Movie;
-import saras.movies.movies.repository.MovieRepository;
+import saras.movies.server.model.Movie;
+import saras.movies.server.repository.MovieRepository;
 
 import java.util.List;
 import java.util.Optional;
