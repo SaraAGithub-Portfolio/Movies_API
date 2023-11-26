@@ -20,6 +20,7 @@ public class Review {
     // updated to allow user to review all reviews via imdbId
     private String imdbId;
     private String title;
+    private String username;
 
     public Review(String body) {
         this.body = body;

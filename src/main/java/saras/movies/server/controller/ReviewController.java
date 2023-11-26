@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import saras.movies.server.model.Review;
 import saras.movies.server.services.ReviewService;
 
@@ -17,11 +19,21 @@ public class ReviewController {
     public ReviewController(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
-    @PostMapping
-    public ResponseEntity<Review> createReview(@RequestBody Map<String,String> payload) {
-        return new ResponseEntity<Review>(reviewService.createReview(payload.get("body"), payload.get("imdbId"), payload.get("title")), HttpStatus.CREATED);
-    }
 
+    //updated post request to include username of currently authenticated user
+    @PostMapping
+    public ResponseEntity<Review> postReview(@RequestBody Review review) {
+        // Get the currently authenticated user
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        // Set the username in the review
+        review.setUsername(username);
+
+        // Save the review
+        Review savedReview = reviewService.saveReview(review);
+        return ResponseEntity.ok(savedReview);
+    }
     //adding endpoint to find all reviews based on ImdbId
     @GetMapping("movie/{imdbId}")
     public ResponseEntity<List<Review>> getReviewsByMovie(@PathVariable String imdbId) {
