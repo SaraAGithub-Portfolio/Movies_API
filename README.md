@@ -148,3 +148,4 @@ Through this blend of technologies and methodologies, the Movie API delivers a s
 * Request Matchers Usage: https://www.youtube.com/watch?v=EW4hKdd5w4Y&ab_channel=PeterSchneider
 * MongoDb: mongodb.com
 * Postman: It may be best to install `Postman` onto your local machine to test the application : postman.com 
+* Java Bean Validation Basics(@NotNull, @Size):https://www.baeldung.com/java-validation#:~:text=%40NotNull%20validates%20that%20the%20annotated,%2C%20Map%2C%20and%20array%20properties.
