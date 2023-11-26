@@ -2,10 +2,10 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Userstories](#user-stories)
+- [User stories](#user-stories)
 - [Getting Started](#getting-started)
     - [Installation](#installation)
-    - [Usage](#usage)
+    - [Using the API with Postman](#using-the-api-with-postman)
 - [Features](#features)
 - [References](#references)
 
@@ -56,7 +56,7 @@ This project not only served as a valuable learning experience but also stands a
 6. As a new visitor, I want to register an account, so that I can participate in writing reviews.
 
 
-## Getting Started(Postman, MongoDb, IntelliJ, Java/Spring)
+## Getting Started
 
 ## Installation
 
@@ -145,7 +145,7 @@ This section outlines the key functionalities of the Movie API, the technology s
 Through this blend of technologies and methodologies, the Movie API delivers a secure, efficient, and user-friendly platform for movie enthusiasts to explore and engage with movie content.
 
 
-## References(Documentation)
+## References
 
 * Spring Initialzor: https://start.spring.io/
 * Exception Handling in Spring: https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
