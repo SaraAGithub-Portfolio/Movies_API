@@ -21,7 +21,7 @@ The primary goal of this project was to build a practical and engaging tool for 
 ### Project Enhancements and Features
 
 Significant upgrades have been made to the initial version of this project, with a focus on user engagement and data management:
-
+- **Movie information** : View movie images and trailers when viewing all movies.
 - **Advanced Filtering**: Users can now filter movies not just by genre and release date, but also by title, enhancing the searchability and user experience.
 - **Comprehensive Reviews**: The platform enables users to view all reviews associated with a movie, accessible via IMDb ID or movie title.
 - **User Authentication and Authorization**: A secure system for user registration and login has been implemented, associating reviews with individual usernames.
@@ -31,17 +31,16 @@ Significant upgrades have been made to the initial version of this project, with
 ### Future Additions
 
 Looking ahead, there are several exciting features planned for further enhancement:
-
+- **Companion Frontend**: Create the frontend using React
 - **Role-Based Access Control (RBAC)**: To introduce different user roles and permissions for a more controlled and secure user environment.
 - **Akka Implementation**: For improved scalability and performance.
 - **Social Features**: Including movie ratings, comment upvoting, and more interactive elements to foster a community feel.
-- **Movie Information Expansion**: Integrating movie trailers and clips to enrich the content available to users.
 
 ### Approach and Challenges
 
 The development of this project involved structuring a JSON file, which was then integrated into a MongoDB cluster to create collections for Movies, Reviews, and Users. This structure ensures efficient data retrieval and storage. One of the main challenges encountered was familiarizing myself with new Spring dependencies and utilizing Mockito for testing for the first time. These hurdles were met with a proactive learning approach and practical application of theoretical knowledge.
 
-In terms of security, user passwords are encrypted using Spring's PasswordEncoder, reflecting a commitment to protecting user data and privacy.
+In terms of security, user passwords are encrypted using Spring's PasswordEncoder, reflecting a commitment to protecting user data and privacy. Learning how to properly implement a SecurityConfig in Spring and Java required a lot of research and time.
 
 ### Conclusion
 
@@ -88,6 +87,10 @@ Users have the option of creating their own MongoDb database.
 
 ## Using the API with Postman
 
+You can view all movies and reviews based on title, ImdbId, genre or release date.
+
+**However** if you want to post a review, you should register and create a review with `Postman`. 
+
 Below is an  example of how to use the API with Postman for registering a user:
 
 ### 1. Register a User
@@ -102,7 +105,10 @@ Below is an  example of how to use the API with Postman for registering a user:
     "email": "newuser@example.com"
   }
 Please refer to example images if you need further help. This is an example of what you'd see using Postman:
-![Postman Register User](https://i.imgur.com/88QkGJM.png)
+![Postman Register User](https://i.imgur.com/t1lDhQe.png)
+![Postman Create Review](https://i.imgur.com/0k5h65l.png)
+What you should see in MongoDB:
+![MongoDB](https://i.imgur.com/d6iXIlP.png)
 
 ## Features
 
@@ -145,7 +151,7 @@ Through this blend of technologies and methodologies, the Movie API delivers a s
 * Exception Handling in Spring: https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
 * Spring security filter chain: https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html
 * Mockito: https://site.mockito.org/
-* Request Matchers Usage: https://www.youtube.com/watch?v=EW4hKdd5w4Y&ab_channel=PeterSchneider
+* Request Matchers Usage: https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html
 * MongoDb: mongodb.com
 * Postman: It may be best to install `Postman` onto your local machine to test the application : postman.com 
 * Java Bean Validation Basics(@NotNull, @Size):https://www.baeldung.com/java-validation#:~:text=%40NotNull%20validates%20that%20the%20annotated,%2C%20Map%2C%20and%20array%20properties.

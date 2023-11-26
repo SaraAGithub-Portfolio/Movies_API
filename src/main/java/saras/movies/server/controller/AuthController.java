@@ -7,7 +7,7 @@ import saras.movies.server.model.User;
 import saras.movies.server.services.UserService;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
     @Autowired
     private UserService userService;
