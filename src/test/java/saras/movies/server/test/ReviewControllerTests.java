@@ -1,6 +1,7 @@
 package saras.movies.server.test;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,6 +24,7 @@ public class ReviewControllerTests {
     private ReviewService reviewService;
 //test to check if '404' status is given if movie review not found
     @Test
+    @WithMockUser
     public void whenGetReviewsByNonexistentTitle_thenNotFound() throws Exception {
         String title = "Nonexistent Movie";
         Mockito.when(reviewService.getReviewsByTitle(title)).thenReturn(Collections.emptyList());

@@ -149,6 +149,7 @@ Through this blend of technologies and methodologies, the Movie API delivers a s
 ## References
 
 * Spring Initialzor: https://start.spring.io/
+* DotEnv : https://central.sonatype.com/artifact/me.paulschwarz/spring-dotenv/3.0.0
 * Specific Exceptions: https://docs.oracle.com/javaee%2F6%2Fapi%2F%2F/javax/persistence/EntityNotFoundException.html
 * Exception Handling in Spring: https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
 * Spring security filter chain: https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html
