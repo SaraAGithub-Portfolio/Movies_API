@@ -97,7 +97,7 @@ Below is an  example of how to use the API with Postman for registering a user:
 ### 1. Register a User
 
 - **Method**: POST
-- **URL**: `http://localhost:8080/api/auth/register`
+- **URL**: `http://localhost:8080/api/v1/auth/register`
 - **Body** (JSON):
   ```json
   {

@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import saras.movies.server.exception.ServiceException;
 import saras.movies.server.model.User;
 import saras.movies.server.repository.UserRepository;
 import saras.movies.server.services.UserService;
@@ -44,16 +45,20 @@ public class UserServiceTests {
         verify(userRepository).save(any(User.class));
     }
 
+
     @Test
     public void testRegisterUserWithEmptyUsername() {
+        // Create a user with an empty username
         User user = new User();
-        user.setUsername("username");
+        user.setUsername(""); // Setting the username to empty
         user.setPassword("password");
 
+        // Assert that an IllegalArgumentException is thrown
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             userService.registerUser(user);
         });
 
+        // Check the exception message
         assertEquals("Username and password cannot be null or empty", exception.getMessage());
     }
 }
