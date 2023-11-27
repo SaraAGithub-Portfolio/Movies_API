@@ -30,7 +30,7 @@ public class AuthControllerTests {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
                         .contentType("application/json")
                         .content(userJson))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isCreated());
     }
 
     // Test registration with invalid user data (e.g., missing password)

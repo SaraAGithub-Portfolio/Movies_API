@@ -21,6 +21,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/movies/**").permitAll() // Unauthenticated GET requests for movies
                         .requestMatchers(HttpMethod.GET, "/api/v1/reviews/**").permitAll() // Unauthenticated GET requests for reviews
                         .requestMatchers("/api/v1/auth/register").permitAll() // Unauthenticated requests for user registration
+                        .requestMatchers(HttpMethod.GET, "/api/v1/users/**").permitAll()// Unauthenticated requests to view all users
                         .requestMatchers(HttpMethod.POST, "/api/v1/reviews/**").authenticated() // Only authenticated POST requests for reviews
                         .anyRequest().authenticated() // All other requests need authentication
                 )

@@ -35,14 +35,7 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public Optional<User> findById(String id) {
-        return userRepository.findById(id);
-    }
-
     // MongoRepository has built-in functionalities for these
-    public void deleteUser(String id) {
-        userRepository.deleteById(id);
-    }
 
     public List<User> findAll() {
         return userRepository.findAll();
