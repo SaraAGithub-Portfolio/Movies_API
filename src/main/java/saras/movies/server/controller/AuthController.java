@@ -11,7 +11,7 @@ import saras.movies.server.services.UserService;
 public class AuthController {
     @Autowired
     private UserService userService;
-
+//ResponseEntity is a wrapper for HTTP responses. Allows you to build a response with a status code, headers and body
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         User registeredUser = userService.registerUser(user);

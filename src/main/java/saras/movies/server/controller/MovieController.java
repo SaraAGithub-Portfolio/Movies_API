@@ -14,9 +14,9 @@ import java.util.Optional;
 @RequestMapping("/api/v1/movies")
 public class MovieController {
 
-    private final MovieService movieService;
+    private final MovieService movieService; // immutability as final, encapsulation restrict access to Movie Service from outside the controller
 
-    @Autowired
+    @Autowired //makes class easier to test and more compliant with dependency injection
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
     }

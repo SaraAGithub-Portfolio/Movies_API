@@ -27,7 +27,7 @@ public class AuthControllerTests {
         User user = new User(null, "newUser", "password123", "newuser@example.com");
         String userJson = objectMapper.writeValueAsString(user);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
                         .contentType("application/json")
                         .content(userJson))
                 .andExpect(MockMvcResultMatchers.status().isOk());
@@ -39,7 +39,7 @@ public class AuthControllerTests {
         User user = new User(null, "newUser", null, "newuser@example.com");
         String userJson = objectMapper.writeValueAsString(user);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
                         .contentType("application/json")
                         .content(userJson))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());

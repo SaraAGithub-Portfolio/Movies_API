@@ -17,7 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.userService = userService;
     }
 
-    @Override
+    @Override // if user is found, returns UserDetails object w/ username & password
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userService.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
@@ -26,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
-                Collections.emptyList() // Empty list of authorities
+                Collections.emptyList() // Empty list of authorities ; if there were roles, this list would contain granted authorities
         );
     }
 }

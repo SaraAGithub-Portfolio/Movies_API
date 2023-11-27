@@ -9,12 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
-@Document(collection = "movies")
+@Document(collection = "movies") // domain object
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
-    @Id
+    @Id // identifier of the document in MongoDB collection
     private ObjectId id;
 
     private String imdbId;
@@ -31,6 +31,6 @@ public class Movie {
 
     private List<String> backdrops;
 
-    @DocumentReference
+    @DocumentReference // advanced feature of Spring Data MongoDB used to handle relationships between documents
     private List<Review> reviewIds;
 }

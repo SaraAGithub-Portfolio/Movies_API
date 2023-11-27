@@ -1,6 +1,6 @@
 package saras.movies.server.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import saras.movies.server.services.ReviewService;
 
 import java.util.Map;
 import java.util.List;
-@RestController
+@RestController // Spring MVC controller where every method returns a domain object
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
     private final ReviewService reviewService;
@@ -31,7 +31,7 @@ public class ReviewController {
         review.setUsername(username);
 
         // Save the review
-        Review savedReview = reviewService.saveReview(review);
+        Review savedReview = reviewService.createReview(review.getBody(),review.getImdbId(), review.getTitle());
         return ResponseEntity.ok(savedReview);
     }
     //adding endpoint to find all reviews based on ImdbId

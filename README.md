@@ -35,6 +35,7 @@ Looking ahead, there are several exciting features planned for further enhanceme
 - **Role-Based Access Control (RBAC)**: To introduce different user roles and permissions for a more controlled and secure user environment.
 - **Akka Implementation**: For improved scalability and performance.
 - **Social Features**: Including movie ratings, comment upvoting, and more interactive elements to foster a community feel.
+- **Payloads package** : a payloads package with request and response Data Transfer Objects(DTO) would be beneficial if the API were to expand. Offering flexibility and control over data sent to/received from clients. Decoupling: separates internal domain model from API layer.
 
 ### Approach and Challenges
 
@@ -148,10 +149,11 @@ Through this blend of technologies and methodologies, the Movie API delivers a s
 ## References
 
 * Spring Initialzor: https://start.spring.io/
+* Specific Exceptions: https://docs.oracle.com/javaee%2F6%2Fapi%2F%2F/javax/persistence/EntityNotFoundException.html
 * Exception Handling in Spring: https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
 * Spring security filter chain: https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/builders/HttpSecurity.html
 * Mockito: https://site.mockito.org/
 * Request Matchers Usage: https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html
-* MongoDb: mongodb.com
-* Postman: It may be best to install `Postman` onto your local machine to test the application : postman.com 
+* MongoDb:https://www.mongodb.com/
+* Postman: It may be best to install `Postman` onto your local machine to test the application : https://www.postman.com/
 * Java Bean Validation Basics(@NotNull, @Size):https://www.baeldung.com/java-validation#:~:text=%40NotNull%20validates%20that%20the%20annotated,%2C%20Map%2C%20and%20array%20properties.

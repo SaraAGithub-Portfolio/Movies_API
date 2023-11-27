@@ -3,8 +3,6 @@ package saras.movies.server.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import saras.movies.server.model.User;
-
-
 import java.util.Optional;
 
 @Repository
