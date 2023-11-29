@@ -1,6 +1,6 @@
 package saras.movies.server.controller;
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +21,7 @@ public class ReviewController {
     }
 
     //updated post request to include username of currently authenticated user
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Review> postReview(@RequestBody Review review) {
         // Get the currently authenticated user

@@ -31,7 +31,8 @@ Significant upgrades have been made to the initial version of this project, with
 ### Future Additions
 
 Looking ahead, there are several exciting features planned for further enhancement:
-- **Companion Frontend**: Create the frontend using React
+-**Frontend companion**: Creating an interactive frontend using React for a better user experience
+- **Increasing the database**: Expanding the database to add additional films
 - **Role-Based Access Control (RBAC)**: To introduce different user roles and permissions for a more controlled and secure user environment.
 - **Akka Implementation**: For improved scalability and performance.
 - **Social Features**: Including movie ratings, comment upvoting, and more interactive elements to foster a community feel.
@@ -156,5 +157,6 @@ Through this blend of technologies and methodologies, the Movie API delivers a s
 * Mockito: https://site.mockito.org/
 * Request Matchers Usage: https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html
 * MongoDb:https://www.mongodb.com/
+* **MongoDB Query Spring Data :https://www.mongodb.com/docs/manual/reference/operator/query/regex/
 * Postman: It may be best to install `Postman` onto your local machine to test the application : https://www.postman.com/
 * Jakarta Bean Validation Basics(@NotNull, @Size):https://www.baeldung.com/java-validation#:~:text=%40NotNull%20validates%20that%20the%20annotated,%2C%20Map%2C%20and%20array%20properties.

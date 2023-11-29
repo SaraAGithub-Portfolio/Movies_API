@@ -14,11 +14,13 @@ import saras.movies.server.model.User;
 import saras.movies.server.repository.UserRepository;
 import saras.movies.server.services.UserService;
 
-import static org.mockito.Mockito.*;
+import java.util.Optional;
+
+import static org.mockito.Mockito.*; // mocks the UserRepository
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class) //integrates Mockito, enabling mock creation and injection
 public class UserServiceTests {
 
     @MockBean
@@ -28,7 +30,7 @@ public class UserServiceTests {
     private PasswordEncoder passwordEncoder;
 
     @InjectMocks
-    private UserService userService;
+    private UserService userService; //crates instance of the class 'UserService'
 
     @Test
     public void testRegisterUserSuccess() {
@@ -53,7 +55,7 @@ public class UserServiceTests {
         user.setUsername(""); // Setting the username to empty
         user.setPassword("password");
 
-        // Assert that an IllegalArgumentException is thrown
+        // Assert
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             userService.registerUser(user);
         });
@@ -61,4 +63,33 @@ public class UserServiceTests {
         // Check the exception message
         assertEquals("Username and password cannot be null or empty", exception.getMessage());
     }
+    @Test
+    public void whenRegisterUser_withDuplicateUsername_thenThrowException() {
+        // Given
+        String username = "existingUser";
+        String email = "user@example.com";
+        User existingUser = new User(null, username, "password", email);
+        when(userRepository.findByUsername(username)).thenReturn(Optional.of(existingUser));
+
+        User newUser = new User(null, username, "newPassword", "newuser@example.com");
+
+        // When & Then
+        assertThrows(ServiceException.class, () -> userService.registerUser(newUser));
+    }
+
+    @Test
+    public void whenRegisterUser_withDuplicateEmail_thenThrowException() {
+        // Given
+        String username = "newUser";
+        String email = "existing@example.com";
+        User existingUser = new User(null, "existingUser", "password", email);
+        when(userRepository.findByEmail(email)).thenReturn(Optional.of(existingUser));
+
+        User newUser = new User(null, username, "newPassword", email);
+
+        // When & Then
+        assertThrows(ServiceException.class, () -> userService.registerUser(newUser));
+    }
+
+
 }

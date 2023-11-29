@@ -23,8 +23,8 @@ public class AuthControllerTests {
 
     // Test registration with valid user data
     @Test
-    public void whenRegisterUser_withValidData_thenStatus200() throws Exception {
-        User user = new User(null, "newUser", "password123", "newuser@example.com");
+    public void whenRegisterUser_withValidData_thenStatus201() throws Exception {
+        User user = new User(null, "newUser88", "password123", "newuser88@example.com");
         String userJson = objectMapper.writeValueAsString(user);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")

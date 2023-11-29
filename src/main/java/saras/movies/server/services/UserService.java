@@ -23,6 +23,17 @@ public class UserService {
                 user.getPassword() == null || user.getPassword().trim().isEmpty()) {
             throw new IllegalArgumentException("Username and password cannot be null or empty");
         }
+
+        // Check for duplicate username or email
+        Optional<User> existingUserWithUsername = userRepository.findByUsername(user.getUsername());
+        if (existingUserWithUsername.isPresent()) {
+            throw new ServiceException("Username already taken");
+        }
+
+        Optional<User> existingUserWithEmail = userRepository.findByEmail(user.getEmail());
+        if (existingUserWithEmail.isPresent()) {
+            throw new ServiceException("Email already in use");
+        }
         try {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             return userRepository.save(user);
