@@ -21,6 +21,4 @@ public interface MovieRepository extends MongoRepository<Movie, ObjectId> {
    // added method to find movies by their title
    List<Movie> findByTitleContainingIgnoreCase(String title);
 
-
-
 }

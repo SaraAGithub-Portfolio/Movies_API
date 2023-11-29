@@ -9,6 +9,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import saras.movies.server.model.User;
+import saras.movies.server.repository.UserRepository;
+
+
+import java.time.Instant;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -19,19 +23,34 @@ public class AuthControllerTests {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private UserRepository userRepository;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
     // Test registration with valid user data
     @Test
     public void whenRegisterUser_withValidData_thenStatus201() throws Exception {
-        User user = new User(null, "newUser88", "password123", "newuser88@example.com");
+        // Generate a unique username
+        String uniqueUsername = "newUser" + Instant.now().toEpochMilli();
+
+        // Create a new user object
+        User user = new User();
+        user.setUsername(uniqueUsername);
+        user.setPassword("password123");
+        user.setEmail(uniqueUsername + "@example.com");
+
+        // Convert the user object to JSON string
+        ObjectMapper objectMapper = new ObjectMapper();
         String userJson = objectMapper.writeValueAsString(user);
 
+        // Perform a mock HTTP POST request to register the user
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
                         .contentType("application/json")
                         .content(userJson))
-                .andExpect(MockMvcResultMatchers.status().isCreated());
+                .andExpect(MockMvcResultMatchers.status().isCreated()); // Assert that the status is 201
     }
+
 
     // Test registration with invalid user data (e.g., missing password)
     @Test

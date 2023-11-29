@@ -13,10 +13,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
+    @Bean //This means the object is available for dependency injection in other parts of your application.
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
+                .csrf().disable() //Cross-Site Request Forgery disabled. API used in non-browser client Postman
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.GET, "/api/v1/movies/**").permitAll() // Unauthenticated GET requests for movies
                         .requestMatchers(HttpMethod.GET, "/api/v1/reviews/**").permitAll() // Unauthenticated GET requests for reviews

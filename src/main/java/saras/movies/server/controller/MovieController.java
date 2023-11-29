@@ -52,7 +52,7 @@ public class MovieController {
     public List<Movie> searchMoviesByTitle(@RequestParam String title) {
         return movieService.findMoviesByTitle(title);
     }
-
+//@RequestParam for query paramaters & @PathVariables for extract values from path URI
     // returns '400' with exception message when receiving invalid argument
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {

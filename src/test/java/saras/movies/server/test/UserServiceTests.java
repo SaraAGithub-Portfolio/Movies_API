@@ -90,6 +90,28 @@ public class UserServiceTests {
         // When & Then
         assertThrows(ServiceException.class, () -> userService.registerUser(newUser));
     }
+    @Test
+    public void whenFindByUsername_withValidUsername_thenUserReturned() {
+        String username = "dogLover12345";
+        User mockUser = new User(null, username, "password", "user@example.com");
+        when(userRepository.findByUsername(username)).thenReturn(Optional.of(mockUser));
 
+        Optional<User> foundUser = userService.findByUsername(username);
+
+        assertTrue(foundUser.isPresent(), "User should be found");
+        assertEquals(username, foundUser.get().getUsername(), "Username should match");
+        verify(userRepository).findByUsername(username);
+    }
+
+    @Test
+    public void whenFindByUsername_withNonexistentUsername_thenEmptyOptional() {
+        String username = "nonUser";
+        when(userRepository.findByUsername(username)).thenReturn(Optional.empty());
+
+        Optional<User> foundUser = userService.findByUsername(username);
+
+        assertFalse(foundUser.isPresent(), "User should not be found");
+        verify(userRepository).findByUsername(username);
+    }
 
 }

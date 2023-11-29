@@ -23,7 +23,7 @@ public class UserController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-
+//When working with Optional, .map is used to apply a function to the value inside the Optional, if that value is present
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {

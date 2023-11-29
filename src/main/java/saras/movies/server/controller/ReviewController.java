@@ -37,7 +37,7 @@ public class ReviewController {
     }
     //adding endpoint to find all reviews based on ImdbId
     @GetMapping("movie/{imdbId}")
-    public ResponseEntity<List<Review>> getReviewsByMovie(@PathVariable String imdbId) {
+    public ResponseEntity<List<Review>> getReviewsByMovie(@PathVariable String imdbId) { //@PathVariable extracts a value from the URI feature of Spring MVC pass to controllers
         List<Review> reviews = reviewService.getReviewsByImdbId(imdbId);
         if(reviews.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -53,6 +53,6 @@ public class ReviewController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body("No reviews found for the movie titled '" + title + "'.") :
                 ResponseEntity.ok(reviews);
     }
-
+///api/v1/reviews/movie/{imdbId}, {imdbId} is a path variable. It's a placeholder that will be replaced with the actual value in the request URL
 
 }

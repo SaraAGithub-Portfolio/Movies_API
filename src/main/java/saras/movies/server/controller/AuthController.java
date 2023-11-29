@@ -19,15 +19,12 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-//    @Autowired
-//    private AuthenticationManager authenticationManager;
 //ResponseEntity is a wrapper for HTTP responses. Allows you to build a response with a status code, headers and body
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody User user) {
-        User registeredUser = userService.registerUser(user);
+    public ResponseEntity<?> registerUser(@RequestBody User user) { //tells Spring to bind the body of the HTTP request to the user Object
+        User registeredUser = userService.registerUser(user); //User is return type; returns a User object
         return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
     }
-
 //    @PostMapping("/login")
 //    public ResponseEntity<?> loginUser(@RequestBody User user) {
 //        try {
